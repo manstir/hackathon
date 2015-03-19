@@ -6,8 +6,6 @@ using System.Web.Mvc;
 
 namespace Surrogat.Controllers
 {
-    using Surrogat.Models;
-
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -15,15 +13,6 @@ namespace Surrogat.Controllers
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
-        }
-
-        [HttpGet]
-        public ActionResult Save(string fieldname)
-        {
-            var repo = new TestRepository();
-            repo.InsertEntry(new TestBE() { TestField = fieldname });
-
-            return RedirectToAction("index");
         }
 
         public ActionResult About()
