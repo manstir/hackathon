@@ -1,0 +1,39 @@
+﻿@model Surrogat.Areas.CentralBank.ViewModels.BankSummaryViewModel
+@{
+    Layout = "~/Areas/CentralBank/Views/Shared/_CentralBankLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">Bills</div>
+            <div class="panel-body">
+                @{
+                    Html.RenderAction("List", "Bill");
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+            @foreach (var i in @Model.IssuerIds)
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">Issuer: @i </div>
+                    <div class="panel-body">
+                        saldo von issuer @i;
+                    </div>
+                </div>
+            }
+        </div>
+    <div class="col-md-2">
+        @foreach (var i in @Model.AcquirerIds)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">Acquirer: @i </div>
+                <div class="panel-body">
+                    saldo von acquirer @i;
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

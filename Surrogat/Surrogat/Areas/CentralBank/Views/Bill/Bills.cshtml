@@ -1,0 +1,21 @@
+﻿@model Surrogat.Areas.CentralBank.ViewModels.BillListViewModel
+
+<table class="table table-hover table-condensed">
+    <tr>
+        <th>Serial</th>
+        <th>Issued</th>
+        <th>Amount</th>
+        <th>Cashed</th>
+        <th>Salt</th>
+    </tr>
+    @foreach (var bill in @Model.Bills)
+    {
+        <tr>
+            <td>@bill.Serial</td>
+            <td>@bill.IssuedDate</td>
+            <td>@bill.Amount</td>
+            <td>@bill.CashedDate</td>
+            <td>@bill.Salt</td>
+        </tr>
+    }
+</table>
