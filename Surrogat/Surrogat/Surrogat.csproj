@@ -212,12 +212,17 @@
     <Compile Include="Areas\Issuer\Repository\AccountsRepository.cs" />
     <Compile Include="Areas\Issuer\Models\AccountBE.cs" />
     <Compile Include="Areas\Issuer\Models\NewAccountDTO.cs" />
+    <Compile Include="Areas\Person\Controllers\PersonController.cs" />
+    <Compile Include="Areas\Person\Models\TransactionBE.cs" />
+    <Compile Include="Areas\Person\Models\PersonBE.cs" />
     <Compile Include="Areas\Issuer\ViewModels\ShowAccountsViewModel.cs" />
     <Compile Include="Areas\CentralBank\Services\ExchangeEBillService.cs" />
     <Compile Include="Areas\CentralBank\Services\IExchangeEBillService.cs" />
     <Compile Include="Areas\Person\PersonAreaRegistration.cs" />
     <Compile Include="Areas\CentralBank\Repository\IssuerRepository.cs" />
     <Compile Include="Areas\CentralBank\Services\IOrderIBillService.cs" />
+    <Compile Include="Areas\Person\Repository\PersonRepository.cs" />
+    <Compile Include="Areas\Person\ViewModels\AccountViewModel.cs" />
     <Compile Include="Areas\CentralBank\ViewModels\IssuerViewModel.cs" />
     <Compile Include="Shared\EBill.cs" />
     <Compile Include="Areas\CentralBank\Services\OrderEBillService.cs" />
@@ -296,6 +301,8 @@
     <Content Include="Areas\Issuer\Views\AccountsManagement\CreateNewAccount.cshtml" />
     <Content Include="Areas\Person\Views\web.config" />
     <Content Include="Areas\CentralBank\Views\Bank\Issuer.cshtml" />
+    <Content Include="Areas\Person\Views\Person\index.cshtml" />
+    <Content Include="Areas\Person\Views\Shared\_PersonLayout.cshtml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

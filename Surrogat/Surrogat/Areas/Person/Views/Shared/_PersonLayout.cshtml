@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Person</title>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/bundles/css")
+    @*@Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <header>
+        <h1>Person</h1>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="container-fluid">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; SIX-Hackathon Team:</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
