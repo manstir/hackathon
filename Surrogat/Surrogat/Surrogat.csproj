@@ -212,11 +212,10 @@
     <Compile Include="Areas\Issuer\Models\BillBE.cs" />
     <Compile Include="Areas\Issuer\Repository\AccountsRepository.cs" />
     <Compile Include="Areas\Issuer\Models\AccountBE.cs" />
-    <Compile Include="Areas\Issuer\Models\NewAccountDTO.cs" />
+    <Compile Include="Areas\Issuer\ViewModels\OverviewViewModel.cs" />
     <Compile Include="Areas\Person\Controllers\PersonController.cs" />
     <Compile Include="Areas\Person\Models\TransactionBE.cs" />
     <Compile Include="Areas\Person\Models\PersonBE.cs" />
-    <Compile Include="Areas\Issuer\ViewModels\ShowAccountsViewModel.cs" />
     <Compile Include="Areas\CentralBank\Services\ExchangeEBillService.cs" />
     <Compile Include="Areas\CentralBank\Services\IExchangeEBillService.cs" />
     <Compile Include="Areas\Person\PersonAreaRegistration.cs" />
@@ -298,10 +297,6 @@
     <Content Include="Areas\CentralBank\Views\Bank\Index.cshtml" />
     <Content Include="Areas\Issuer\Views\web.config" />
     <Content Include="Areas\Issuer\Views\Overview\Overview.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Areas\Issuer\Views\AccountsManagement\ShowAccounts.cshtml" />
-=======
->>>>>>> removed unused reference from project
     <Content Include="Areas\Person\Views\web.config" />
     <Content Include="Areas\CentralBank\Views\Bank\Issuer.cshtml" />
     <Content Include="Areas\Person\Views\Person\index.cshtml" />
