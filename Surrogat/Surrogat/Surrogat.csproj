@@ -208,6 +208,8 @@
     <Compile Include="Areas\CentralBank\CentralBankAreaRegistration.cs" />
     <Compile Include="Areas\CentralBank\Controllers\BillController.cs" />
     <Compile Include="Areas\CentralBank\Repository\BillRepository.cs" />
+    <Compile Include="Shared\EBill.cs" />
+    <Compile Include="Areas\CentralBank\Services\OrderEBillService.cs" />
     <Compile Include="Areas\CentralBank\ViewModels\BillListViewModel.cs" />
     <Compile Include="Areas\CentralBank\ViewModels\BankSummaryViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
