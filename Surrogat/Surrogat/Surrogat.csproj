@@ -213,6 +213,7 @@
     <Compile Include="Areas\Issuer\Repository\AccountsRepository.cs" />
     <Compile Include="Areas\Issuer\Models\AccountBE.cs" />
     <Compile Include="Areas\Issuer\Repository\BillsRepository.cs" />
+    <Compile Include="Areas\Issuer\Services\VirtualAtmService.cs" />
     <Compile Include="Areas\Issuer\ViewModels\OverviewViewModel.cs" />
     <Compile Include="Areas\Person\Controllers\PersonController.cs" />
     <Compile Include="Areas\Person\Models\TransactionBE.cs" />

@@ -27,5 +27,15 @@ namespace Surrogat.Areas.Issuer.Controllers
                 return accounts;
             }
         }
+
+        public AccountBE GetAccountById(int accountId)
+        {
+            using (var transaction = Session.BeginTransaction())
+            {
+                var account = Session.Query<AccountBE>().FirstOrDefault(be => be.Id.Equals(accountId));
+                transaction.Commit();
+                return account;
+            }
+        }
     }
 }

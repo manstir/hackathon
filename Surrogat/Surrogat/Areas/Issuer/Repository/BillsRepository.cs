@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NHibernate.Linq;
@@ -24,6 +25,21 @@ namespace Surrogat.Areas.Issuer.Controllers
             {
                 Session.Save(bill);
                 transaction.Commit();
+            }
+        }
+
+        public BillBE WithdrawBill(decimal amount)
+        {
+            using (var transaction = Session.BeginTransaction())
+            {
+                var bill = Session.Query<BillBE>().FirstOrDefault(be => be.Amount.Equals(amount));
+                if (bill == null)
+                {
+                    throw new Exception("No bill available for this amount");
+                }
+                Session.Delete(bill);
+                transaction.Commit();
+                return bill;
             }
         }
     }
