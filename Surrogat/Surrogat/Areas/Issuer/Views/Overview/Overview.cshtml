@@ -1,0 +1,45 @@
+﻿@model Surrogat.Areas.Issuer.ViewModels.ShowAccountsViewModel
+
+@{
+    ViewBag.Title = "Overview";
+    Layout = "~/Areas/Issuer/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Overview</h2>
+
+<div class="CentralBankView">
+
+</div>
+<div class="AccountsView">
+
+	<table class="table">
+		<thead>
+		<tr>
+			<th>Id</th>
+			<th>Alias</th>
+			<th>Name</th>
+			<th>Created On</th>
+			<th>Debt</th>
+		</tr>
+		</thead>
+		<tbody>
+			@foreach (var account in @Model.Accounts)
+			{
+				<tr>
+					<td class="Title">
+						<span class="Id">@account.Id</span>
+						<span class="Alias">@account.Alias</span>
+					</td>
+					<td class="Details">
+						<span class="Name">@account.Name</span>
+					</td>
+					<td class="Debt">
+						<span class="Currency">CHF</span>
+						<span class="Amount">@account.Debt.ToString("D2")</span>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
