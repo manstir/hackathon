@@ -23,10 +23,10 @@ namespace Surrogat
             //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
             //            "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/bundles/css")
-                .Include("~/Content/bootstrap.css")
-                //.Include("~/Content/bootstrap-theme.css")
-                );
+            //bundles.Add(new StyleBundle("~/bundles/css")
+            //    .Include("~/Content/bootstrap.css")
+            //    //.Include("~/Content/bootstrap-theme.css")
+            //    );
 
             //bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
             //            "~/Content/themes/base/jquery.ui.core.css",
