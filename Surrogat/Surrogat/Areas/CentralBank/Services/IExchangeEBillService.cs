@@ -6,6 +6,6 @@
 
     public interface IExchangeEBillService
     {
-        List<BillDto> Exchange(IEnumerator<BillDto> bills, decimal targetAmount);
+        IEnumerable<BillDto> Exchange(IEnumerable<BillDto> bills, decimal targetAmount);
     }
-}
+}   

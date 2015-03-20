@@ -32,9 +32,26 @@
             }
         }
 
+        public decimal CashBill(Guid token)
+        {
+            using (var transaction = Session.BeginTransaction())
+            {
+                var bill = this.LoadBillByTokenInternal(token);
+                bill.CashedDate = DateTime.Now;
+                var value = bill.Amount;
+                transaction.Commit();
+                return value;
+            }
+        }
+
         private BillBE LoadBillInternal(int serial)
         {
-            return  Session.Query<BillBE>().FirstOrDefault(b => b.Serial == serial);
+            return Session.Query<BillBE>().FirstOrDefault(b => b.Serial == serial);
+        }
+
+        private BillBE LoadBillByTokenInternal(Guid token)
+        {
+            return Session.Query<BillBE>().FirstOrDefault(b => b.Token == token);
         }
     }
 }
