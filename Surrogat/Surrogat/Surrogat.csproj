@@ -209,6 +209,7 @@
     <Compile Include="Areas\CentralBank\Controllers\BillController.cs" />
     <Compile Include="Areas\CentralBank\Models\IssuerBalanceBE.cs" />
     <Compile Include="Areas\CentralBank\Repository\BillRepository.cs" />
+    <Compile Include="Areas\Issuer\Models\BillBE.cs" />
     <Compile Include="Areas\Issuer\Repository\AccountsRepository.cs" />
     <Compile Include="Areas\Issuer\Models\AccountBE.cs" />
     <Compile Include="Areas\Issuer\Models\NewAccountDTO.cs" />
@@ -298,7 +299,6 @@
     <Content Include="Areas\Issuer\Views\web.config" />
     <Content Include="Areas\Issuer\Views\Overview\Overview.cshtml" />
     <Content Include="Areas\Issuer\Views\AccountsManagement\ShowAccounts.cshtml" />
-    <Content Include="Areas\Issuer\Views\AccountsManagement\CreateNewAccount.cshtml" />
     <Content Include="Areas\Person\Views\web.config" />
     <Content Include="Areas\CentralBank\Views\Bank\Issuer.cshtml" />
     <Content Include="Areas\Person\Views\Person\index.cshtml" />

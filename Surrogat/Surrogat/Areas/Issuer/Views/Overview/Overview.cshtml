@@ -17,13 +17,20 @@
 		</tr>
 		</thead>
 		<tbody>
-
+			@foreach (var amountGroup in Model.Bills.GroupBy(be => be.Amount))
+			{
+				<tr>
+					<th>@amountGroup.Key</th>
+					<td>@amountGroup.Count()</td>
+					<td>@amountGroup.Sum(be => be.Amount)</td>
+				</tr>
+			}
 		</tbody>
 		<tfoot>
 		<tr>
-			<td></td>
-			<td></td>
-			<td>@Model.Bills</td>
+			<td>-</td>
+			<td>@Model.Bills.Count()</td>
+			<td>@Model.Bills.Sum(be => be.Amount)</td>
 		</tr>
 		</tfoot>
 	</table>
