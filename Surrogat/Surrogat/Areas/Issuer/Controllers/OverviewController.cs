@@ -16,7 +16,7 @@ namespace Surrogat.Areas.Issuer.Controllers
             var repository = new AccountsRepository();
             var accounts = repository.GetAccounts();
 
-            var model = new ShowAccountsViewModel()
+            var model = new OverviewViewModel()
             {
                 Accounts = accounts
             };
