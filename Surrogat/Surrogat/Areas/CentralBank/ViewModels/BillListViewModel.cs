@@ -6,6 +6,6 @@
 
     public class BillListViewModel
     {
-        public IReadOnlyCollection<BillBE> Bills { get; set; } 
+        public IReadOnlyCollection<EBillBE> Bills { get; set; } 
     }
 }

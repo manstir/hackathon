@@ -11,22 +11,22 @@
 
     public class BillRepository : BaseRepo
     {
-        public BillBE CreateBill(decimal amount)
+        public EBillBE CreateBill(decimal amount)
         {
             using (var transaction = Session.BeginTransaction())
             {
-                var serial = (int)Session.Save(new BillBE { Amount = amount, IssuedDate = DateTime.Now, Token = Guid.NewGuid(), });
+                var serial = (int)Session.Save(new EBillBE { Amount = amount, IssuedDate = DateTime.Now, Token = Guid.NewGuid(), });
                 var bill = this.LoadBillInternal(serial);
                 transaction.Commit();
                 return bill;
             }
         }
 
-        public IReadOnlyCollection<BillBE> GetAllBills()
+        public IReadOnlyCollection<EBillBE> GetAllBills()
         {
             using (var transaction = Session.BeginTransaction())
             {
-                var bills = Session.Query<BillBE>().Where(b => b.Serial < 100).ToList();
+                var bills = Session.Query<EBillBE>().Where(b => b.Serial < 100).ToList();
                 transaction.Commit();
                 return bills;
             }
@@ -44,14 +44,14 @@
             }
         }
 
-        private BillBE LoadBillInternal(int serial)
+        private EBillBE LoadBillInternal(int serial)
         {
-            return Session.Query<BillBE>().FirstOrDefault(b => b.Serial == serial);
+            return Session.Query<EBillBE>().FirstOrDefault(b => b.Serial == serial);
         }
 
-        private BillBE LoadBillByTokenInternal(Guid token)
+        private EBillBE LoadBillByTokenInternal(Guid token)
         {
-            return Session.Query<BillBE>().FirstOrDefault(b => b.Token == token);
+            return Session.Query<EBillBE>().FirstOrDefault(b => b.Token == token);
         }
     }
 }

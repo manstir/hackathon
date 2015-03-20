@@ -4,9 +4,9 @@
 
     using FluentNHibernate.Mapping;
 
-    public class BillMap : ClassMap<BillBE>
+    public class EBillMap : ClassMap<EBillBE>
     {
-        public BillMap()
+        public EBillMap()
         {
             this.Table("SG_CB_Bill");
             this.Id(x => x.Serial).Column("Serial").GeneratedBy.Identity();
@@ -16,7 +16,7 @@
             Map(x => x.Token).Column("Salt");
         }
     }
-    public class BillBE
+    public class EBillBE
     {
         public virtual int Serial { get; set; }
         public virtual DateTime IssuedDate { get; set; }
