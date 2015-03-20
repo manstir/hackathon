@@ -208,6 +208,10 @@
     <Compile Include="Areas\CentralBank\CentralBankAreaRegistration.cs" />
     <Compile Include="Areas\CentralBank\Controllers\BillController.cs" />
     <Compile Include="Areas\CentralBank\Repository\BillRepository.cs" />
+    <Compile Include="Areas\Issuer\Repository\AccountsRepository.cs" />
+    <Compile Include="Areas\Issuer\Models\AccountBE.cs" />
+    <Compile Include="Areas\Issuer\Models\NewAccountDTO.cs" />
+    <Compile Include="Areas\Issuer\ViewModels\ShowAccountsViewModel.cs" />
     <Compile Include="Shared\EBill.cs" />
     <Compile Include="Areas\CentralBank\Services\OrderEBillService.cs" />
     <Compile Include="Areas\CentralBank\ViewModels\BillListViewModel.cs" />
@@ -280,6 +284,9 @@
     <Content Include="Areas\CentralBank\Views\Shared\_CentralBankLayout.cshtml" />
     <Content Include="Areas\CentralBank\Views\Bank\Index.cshtml" />
     <Content Include="Areas\Issuer\Views\web.config" />
+    <Content Include="Areas\Issuer\Views\Shared\Layout.cshtml" />
+    <Content Include="Areas\Issuer\Views\AccountsManagement\ShowAccounts.cshtml" />
+    <Content Include="Areas\Issuer\Views\AccountsManagement\CreateNewAccount.cshtml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -341,9 +348,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Issuer\Models\" />
-    <Folder Include="Areas\Issuer\Views\AccountsManagement\" />
-    <Folder Include="Areas\Issuer\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

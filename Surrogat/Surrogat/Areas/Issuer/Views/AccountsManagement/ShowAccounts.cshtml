@@ -1,0 +1,29 @@
+﻿@model Surrogat.Areas.Issuer.ViewModels.ShowAccountsViewModel
+
+@{
+    ViewBag.Title = "ShowAccounts";
+    Layout = "~/Areas/Issuer/Views/Shared/Layout.cshtml";
+}
+
+<h2>ShowAccounts</h2>
+
+<div class="Toolbar">
+	<a href="@Url.Action("CreateNewAccount")" class="Button">New Account ...</a>
+</div>
+
+@foreach (var account in @Model.Accounts)
+{
+	<div class="Account">
+		<div class="Title">
+			<span class="Id">@account.Id</span>
+			<span class="Alias">@account.Alias</span>
+		</div>
+		<div class="Details">
+			<span class="Name">@account.Name</span>
+		</div>
+		<div class="Debt">
+			<span class="Currency">CHF</span>
+			<span class="Amount">@account.Debt.ToString("D.2")</span>
+		</div>
+	</div>
+}

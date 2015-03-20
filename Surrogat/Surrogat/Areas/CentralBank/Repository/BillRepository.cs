@@ -12,12 +12,12 @@
     {
         public IReadOnlyCollection<BillBE> GetAllBills()
         {
-            using (var transaction = Session.BeginTransaction())
-            {
-                var bills =  Session.Query<BillBE>().Where(b => b.Serial < 100).ToList();
-                transaction.Commit();
-                return bills;
-            }
+                using (var transaction = Session.BeginTransaction())
+                {
+                    var bills =  Session.Query<BillBE>().Where(b => b.Serial < 100).ToList();
+                    transaction.Commit();
+                    return bills;
+                }
         }    
     }
 }
