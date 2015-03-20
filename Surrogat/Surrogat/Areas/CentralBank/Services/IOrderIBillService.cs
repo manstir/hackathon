@@ -4,6 +4,6 @@
 
     public interface IOrderIBillService
     {
-        BillDto OrderBill (int issuerId, double amount);
+        BillDto OrderBill (int issuerId, decimal amount);
     }
 }
