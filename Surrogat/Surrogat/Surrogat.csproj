@@ -298,7 +298,10 @@
     <Content Include="Areas\CentralBank\Views\Bank\Index.cshtml" />
     <Content Include="Areas\Issuer\Views\web.config" />
     <Content Include="Areas\Issuer\Views\Overview\Overview.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Issuer\Views\AccountsManagement\ShowAccounts.cshtml" />
+=======
+>>>>>>> removed unused reference from project
     <Content Include="Areas\Person\Views\web.config" />
     <Content Include="Areas\CentralBank\Views\Bank\Issuer.cshtml" />
     <Content Include="Areas\Person\Views\Person\index.cshtml" />
@@ -375,6 +378,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Issuer\Views\AccountsManagement\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
