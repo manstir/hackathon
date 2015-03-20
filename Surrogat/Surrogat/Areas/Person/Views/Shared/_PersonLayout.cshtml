@@ -7,22 +7,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <h1>Person</h1>
-    </header>
-    <div id="body">
-        @RenderSection("featured", required: false)
-        <section class="container-fluid">
-            @RenderBody()
-        </section>
-    </div>
-    <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>&copy; SIX-Hackathon Team:</p>
-            </div>
+    <div class="container-fluid">
+        <header>
+            <h2>
+                <img width="48" src="@Url.Content("~/Images/person.png")" />
+                Person
+            </h2>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section>
+                @RenderBody()
+            </section>
         </div>
-    </footer>
+        <footer>
+            <div>
+                <p class="text-left">&copy; SIX-Hackathon Team: NoCash</p>
+            </div>
+        </footer>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)

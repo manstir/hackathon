@@ -1,4 +1,5 @@
-﻿using Surrogat.Areas.Person.Models;
+﻿using System.Linq;
+using Surrogat.Areas.Person.Models;
 
 namespace Surrogat.Areas.Person.ViewModels
 {
@@ -7,9 +8,14 @@ namespace Surrogat.Areas.Person.ViewModels
         public PersonBE Person { get; set; }
         public decimal WithdrawAmount { get; set; }
 
-        public string Fullname()
+        public string GetFullname()
         {
             return string.Concat(Person.Firstname, " ", Person.Lastname);
+        }
+
+        public decimal GetBalance()
+        {
+            return Person.Transactions.Where(transaction => !transaction.Cashed).Sum(transaction => transaction.Amount);
         }
     }
 }

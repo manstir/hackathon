@@ -3,38 +3,79 @@
     Layout = "~/Areas/Person/Views/Shared/_PersonLayout.cshtml";
 }
 
-<h2>Account Overview '@Model.Fullname()'</h2>
+<div class="row">
+    <div class="col-md-4 text-right text-muted"><h5>@Model.GetFullname()</h5></div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Withdraw</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-4 text-center">
+                        @using (Html.BeginForm("Withdraw", "Person", FormMethod.Post, new {@class = "form-inline"}))
+                        {
+                            @Html.HiddenFor(m => m.Person.Id)
+                            @Html.Hidden("WithdrawAmount", "10")
+                            <button type="submit" class="btn btn-primary">CHF 10</button>
+                        }
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        @using (Html.BeginForm("Withdraw", "Person", FormMethod.Post, new {@class = "form-inline"}))
+                        {
+                            @Html.HiddenFor(m => m.Person.Id)
+                            @Html.Hidden("WithdrawAmount", "20")
+                            <button type="submit" class="btn btn-primary">CHF 20</button>
+                        }
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        @using (Html.BeginForm("Withdraw", "Person", FormMethod.Post, new {@class = "form-inline"}))
+                        {
+                            @Html.HiddenFor(m => m.Person.Id)
+                            @Html.Hidden("WithdrawAmount", "50")
+                            <button type="submit" class="btn btn-primary">CHF 50</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
 
-@using (Html.BeginForm("Withdraw", "Person", FormMethod.Post, new { @class = "form-inline"}))
-{
-    <div class="form-group">
-        <label class="sr-only" for="exampleInputAmount">Amount (in CHF)</label>
-        <div class="input-group">
-            <div class="input-group-addon">CHF</div>
-            @Html.TextBoxFor(m => m.WithdrawAmount, new {@class = "form-control"})
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Balance</h3>
+            </div>
+            <div class="panel-body">
+                <strong>CHF @Model.GetBalance()</strong> 
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Transactions</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th width="37%">Withdrawn On</th>
+                            <th width="26%">Amount (CHF)</th>
+                            <th width="37%">Cashed On</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var transaction in Model.Person.Transactions.OrderByDescending(t => t.WithdrawDate))
+                        {
+                            <tr>
+                                <td>@transaction.WithdrawDate</td>
+                                <td class="text-right">@transaction.Amount</td>
+                                <td>@(transaction.CashedDate.HasValue ? transaction.CashedDate.Value.ToString() : string.Empty)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    @Html.HiddenFor(m => m.Person.Id)
-    <button type="submit" class="btn btn-primary">Withdraw</button>
-}
-
-<h2>Transactions</h2>
-<table class="table table-striped table-hover">
-    <thead>
-    <tr>
-        <th>Withdrawn On</th>
-        <th>Amount</th>
-        <th>Cashed On</th>
-    </tr>
-    </thead>
-    <tbody>
-        @foreach (var transaction in Model.Person.Transactions.OrderByDescending(t => t.WithdrawDate))
-        {
-            <tr>
-                <td>@transaction.WithdrawDate</td>
-                <td>@transaction.Amount</td>
-                <td>@(transaction.CashedDate.HasValue ? transaction.CashedDate.Value.ToString() : string.Empty)</td>
-            </tr>
-        }
-    </tbody>
-</table>
+</div>
