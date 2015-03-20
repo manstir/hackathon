@@ -25,6 +25,9 @@ namespace Surrogat.Areas.Issuer.Services
             var billRepo = new BillsRepository();
             var bill = billRepo.WithdrawBill(amount);
 
+            account.Debt += bill.Amount;
+            accountsRepo.UpdateAccount(account);
+
             return new BillDto { Amout = bill.Amount, Token = bill.Token };
         }
     }

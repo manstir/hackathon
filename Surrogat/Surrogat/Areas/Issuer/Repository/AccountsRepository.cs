@@ -37,5 +37,14 @@ namespace Surrogat.Areas.Issuer.Controllers
                 return account;
             }
         }
+
+        public void UpdateAccount(AccountBE account)
+        {
+            using (var transaction = Session.BeginTransaction())
+            {
+                Session.Update(account);
+                transaction.Commit();
+            }
+        }
     }
 }
