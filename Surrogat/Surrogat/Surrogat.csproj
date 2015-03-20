@@ -297,7 +297,6 @@
     <Content Include="Areas\CentralBank\Views\Bank\Index.cshtml" />
     <Content Include="Areas\Issuer\Views\web.config" />
     <Content Include="Areas\Issuer\Views\Overview\Overview.cshtml" />
-    <Content Include="Areas\Issuer\Views\Shared\Layout.cshtml" />
     <Content Include="Areas\Issuer\Views\AccountsManagement\ShowAccounts.cshtml" />
     <Content Include="Areas\Issuer\Views\AccountsManagement\CreateNewAccount.cshtml" />
     <Content Include="Areas\Person\Views\web.config" />
