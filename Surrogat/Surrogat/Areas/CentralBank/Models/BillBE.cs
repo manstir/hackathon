@@ -9,11 +9,11 @@
         public BillMap()
         {
             this.Table("SG_CB_Bill");
-            this.Id(x => x.Serial).Column("Serial");
+            this.Id(x => x.Serial).Column("Serial").GeneratedBy.Identity();
             Map(x => x.IssuedDate).Column("IssueDate");
             Map(x => x.CashedDate).Column("CashedDate");
             Map(x => x.Amount).Column("Amount");
-            Map(x => x.Salt).Column("Salt");
+            Map(x => x.Token).Column("Salt");
         }
     }
     public class BillBE
@@ -21,7 +21,7 @@
         public virtual int Serial { get; set; }
         public virtual DateTime IssuedDate { get; set; }
         public virtual DateTime? CashedDate { get; set; }
-        public virtual double Amount { get; set; }
-        public virtual Guid Salt { get; set; }
+        public virtual decimal Amount { get; set; }
+        public virtual Guid Token { get; set; }
     }
 }

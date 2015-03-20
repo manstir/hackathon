@@ -1,17 +1,22 @@
 ﻿namespace Surrogat.Areas.CentralBank.Services
 {
+    using Surrogat.Areas.CentralBank.Repository;
     using Surrogat.Shared;
 
     public class OrderEBillService : IOrderIBillService
     {
-        public BillDto OrderBill(int issuerId, double amount)
+        public OrderEBillService()
         {
-            throw new System.NotImplementedException();
         }
-    }
+        public BillDto OrderBill(int issuerId, decimal amount)
+        {
+            var billRepo = new BillRepository();
+            var bill = billRepo.CreateBill(amount);
 
-    public interface IOrderIBillService
-    {
-        BillDto OrderBill (int issuerId, double amount);
+            var issuerRepo = new IssuerRepository();
+            issuerRepo.UpdateIssuerBalance(issuerId, amount);
+
+            return new BillDto { Amout = bill.Amount, Token = bill.Token };
+        }
     }
 }
