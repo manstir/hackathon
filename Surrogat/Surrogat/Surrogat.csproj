@@ -304,6 +304,13 @@
     <Content Include="Areas\Person\Views\Person\index.cshtml" />
     <Content Include="Areas\Person\Views\Shared\_PersonLayout.cshtml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Images\CentralBank\acquirer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CentralBank\centralBank.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\courthouse.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
@@ -364,9 +371,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Issuer\Models\" />
-    <Folder Include="Areas\Issuer\Views\AccountsManagement\" />
-    <Folder Include="Areas\Issuer\Views\Shared\" />
     <Folder Include="Areas\Person\Controllers\" />
     <Folder Include="Areas\Person\Models\" />
     <Folder Include="Areas\Person\Views\Shared\" />

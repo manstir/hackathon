@@ -1,7 +1,10 @@
 ﻿@model Surrogat.Areas.CentralBank.ViewModels.IssuerViewModel
 
 <div class="panel panel-default">
-    <div class="panel-heading">Issuer: @Model.IssuerId </div>
+    <div class="panel-heading">
+        <img width="24" src="@Url.Content("~/Images/issuer.png")" />
+        Issuer: @Model.IssuerId 
+    </div>
     <div class="panel-body">
         Saldo: @Model.Saldi
     </div>

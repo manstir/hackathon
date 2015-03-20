@@ -23,9 +23,11 @@
         @foreach (var i in @Model.AcquirerIds)
         {
             <div class="panel panel-default">
-                <div class="panel-heading">Acquirer: @i </div>
+                <div class="panel-heading">
+                     <img width="24" src="@Url.Content("~/Images/acquirer.png")" /> Acquirer: @i 
+                </div>
                 <div class="panel-body">
-                    saldo von acquirer @i;
+                    saldo von acquirer @i
                 </div>
             </div>
         }
