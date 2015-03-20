@@ -27,14 +27,5 @@ namespace Surrogat.Areas.Issuer.Controllers
                 return accounts;
             }
         }
-
-        public void AddAccount(AccountBE account)
-        {
-            using (var transaction = Session.BeginTransaction())
-            {
-                Session.Save(account);
-                transaction.Commit();
-            }
-        }
     }
 }

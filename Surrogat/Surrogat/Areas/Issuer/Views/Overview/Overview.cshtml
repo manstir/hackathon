@@ -8,6 +8,11 @@
 <h2>Overview</h2>
 
 <div class="CentralBankView">
+	<div class="Toolbar">
+		<a href="Buy?amount=10">+ 10</a>
+		<a href="Buy?amount=50">+ 50</a>
+		<a href="Buy?amount=100">+ 100</a>
+	</div>
 	<table class="table">
 		<thead>
 		<tr>
@@ -17,7 +22,9 @@
 		</tr>
 		</thead>
 		<tbody>
-			@foreach (var amountGroup in Model.Bills.GroupBy(be => be.Amount))
+		@if (Model.Bills.Any())
+		{
+			foreach (var amountGroup in Model.Bills.GroupBy(be => be.Amount))
 			{
 				<tr>
 					<th>@amountGroup.Key</th>
@@ -25,6 +32,15 @@
 					<td>@amountGroup.Sum(be => be.Amount)</td>
 				</tr>
 			}
+		}
+		else
+		{
+			<tr>
+				<td colspan="3">
+					<i>no money, no problems...</i>
+				</td>
+			</tr>
+		}
 		</tbody>
 		<tfoot>
 		<tr>
@@ -51,17 +67,11 @@
 			@foreach (var account in @Model.Accounts)
 			{
 				<tr>
-					<td class="Title">
-						<span class="Id">@account.Id</span>
-						<span class="Alias">@account.Alias</span>
-					</td>
-					<td class="Details">
-						<span class="Name">@account.Name</span>
-					</td>
-					<td class="Debt">
-						<span class="Currency">CHF</span>
-						<span class="Amount">@account.Debt.ToString("D2")</span>
-					</td>
+					<td>@account.Id</td>
+					<td>@account.Alias</td>
+					<td>@account.Name</td>
+					<td>@DateTime.Now.ToString("s")</td>
+					<td>CHF @account.Debt.ToString("F")</td>
 				</tr>
 			}
 		</tbody>

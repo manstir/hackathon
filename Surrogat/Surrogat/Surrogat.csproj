@@ -212,6 +212,7 @@
     <Compile Include="Areas\Issuer\Models\BillBE.cs" />
     <Compile Include="Areas\Issuer\Repository\AccountsRepository.cs" />
     <Compile Include="Areas\Issuer\Models\AccountBE.cs" />
+    <Compile Include="Areas\Issuer\Repository\BillsRepository.cs" />
     <Compile Include="Areas\Issuer\ViewModels\OverviewViewModel.cs" />
     <Compile Include="Areas\Person\Controllers\PersonController.cs" />
     <Compile Include="Areas\Person\Models\TransactionBE.cs" />
@@ -373,7 +374,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Issuer\Views\AccountsManagement\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

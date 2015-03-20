@@ -21,6 +21,6 @@ namespace Surrogat.Areas.Issuer.Models
         public virtual string Name { get; set; }
         public virtual string Alias { get; set; }
         public virtual byte[] PasswordHash { get; set; }
-        public virtual int Debt { get; set; }
+        public virtual decimal Debt { get; set; }
     }
 }

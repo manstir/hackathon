@@ -17,5 +17,14 @@ namespace Surrogat.Areas.Issuer.Controllers
                 return bills;
             }
         }
+
+        public void AddBill(BillBE bill)
+        {
+            using (var transaction = Session.BeginTransaction())
+            {
+                Session.Save(bill);
+                transaction.Commit();
+            }
+        }
     }
 }
