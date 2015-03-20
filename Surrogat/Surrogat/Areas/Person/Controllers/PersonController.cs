@@ -15,7 +15,7 @@ namespace Surrogat.Areas.Person.Controllers
 
         public ActionResult Index(int personId)
         {
-            var model = new AccountViewModel
+            var model = new PersonViewModel
             {
                 Person = _personRepository.GetPersonById(personId)
             };
@@ -24,11 +24,11 @@ namespace Surrogat.Areas.Person.Controllers
         }
 
         [HttpPost]
-        public ActionResult Withdraw(AccountViewModel vm)
+        public ActionResult Withdraw(PersonViewModel vm)
         {
             _personRepository.AddTransaction(vm.Person.Id, vm.WithdrawAmount);
 
-            return RedirectToAction("Account", new { personId = vm.Person.Id });
+            return RedirectToAction("index", new { personId = vm.Person.Id });
         }
     }
 }

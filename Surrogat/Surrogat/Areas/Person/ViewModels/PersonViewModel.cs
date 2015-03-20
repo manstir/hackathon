@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Surrogat.Areas.Person.Models;
+﻿using Surrogat.Areas.Person.Models;
 
 namespace Surrogat.Areas.Person.ViewModels
 {
-    public class AccountViewModel
+    public class PersonViewModel
     {
         public PersonBE Person { get; set; }
         public decimal WithdrawAmount { get; set; }
