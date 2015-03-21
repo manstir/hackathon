@@ -25,6 +25,7 @@ namespace Surrogat.Areas.Acquirer.Controllers
         [HttpGet]
         public void Deposit(int merchantId, string token)
         {
+            merchantId = 4;
             _virtualMultimatService.Deposit(merchantId, token);
         }
     }

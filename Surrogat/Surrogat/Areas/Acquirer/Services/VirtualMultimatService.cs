@@ -2,6 +2,7 @@
 using Surrogat.Areas.Acquirer.Repository;
 using Surrogat.Areas.CentralBank.Repository;
 using Surrogat.Areas.CentralBank.Services;
+using Surrogat.Areas.Person.Repository;
 
 namespace Surrogat.Areas.Acquirer.Services
 {
@@ -14,6 +15,9 @@ namespace Surrogat.Areas.Acquirer.Services
 
             var billRepo = new BillRepository();
             var bill = billRepo.GetBillByToken(new Guid(token));
+
+            var personRepo = new PersonRepository();
+            personRepo.CashInBills(new Guid[] { new Guid(token),  });
 
             merchantRepo.UpdateSaldo(merchantId, bill.Amount);
 
