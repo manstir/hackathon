@@ -4,7 +4,6 @@
     ViewBag.Title = "Issuer";
     Layout = "~/Areas/Issuer/Views/Shared/_Layout.cshtml";
 }
-
 <div class="row">
     <div class="col-md-8">
         <div class="panel panel-default">
@@ -16,44 +15,44 @@
                         <a href="@Url.Action("buy", "Issuer", new { IssuerId = @Model.IssuerId, amount = 50 })" class="btn btn-primary">+ 50</a>
                         <a href="@Url.Action("buy", "Issuer", new { IssuerId = @Model.IssuerId, amount = 100 })" class="btn btn-primary">+ 100</a>
                     </div>
-    <table class="table table-hover table-condensed">
-        <thead>
-            <tr>
-                <th>Value</th>
-                <th>Count</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model.Bills.Any())
-            {
-                foreach (var amountGroup in Model.Bills.GroupBy(be => be.Amount))
-                {
-                    <tr>
-                        <th>@amountGroup.Key</th>
-                        <td>@amountGroup.Count()</td>
-                        <td>@amountGroup.Sum(be => be.Amount)</td>
-                    </tr>
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Value</th>
+                                <th>Count</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Bills.Any())
+                            {
+                                foreach (var amountGroup in Model.Bills.GroupBy(be => be.Amount))
+                                {
+                                    <tr>
+                                        <th>@amountGroup.Key</th>
+                                        <td>@amountGroup.Count()</td>
+                                        <td>@amountGroup.Sum(be => be.Amount)</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="3">
+                                        <i>no money, no problems...</i>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>-</td>
+                                <td>@Model.Bills.Count()</td>
+                                <td>@Model.Bills.Sum(be => be.Amount)</td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="3">
-                        <i>no money, no problems...</i>
-                    </td>
-                </tr>
-            }
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>-</td>
-                <td>@Model.Bills.Count()</td>
-                <td>@Model.Bills.Sum(be => be.Amount)</td>
-            </tr>
-        </tfoot>
-    </table>
-}
             </div>
         </div>
     </div>
@@ -63,6 +62,4 @@
             Html.RenderPartial("account", @account);
         }
     </div>
-    </div>
-
-
+</div>
