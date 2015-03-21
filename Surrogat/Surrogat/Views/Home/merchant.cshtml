@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Merchant</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <h2>
+                <a href="@Url.Action("index", "Home", new { Area = "" }, null)">
+                    <img width="48" src="@Url.Content("~/Images/merchant.png")" />
+                </a>
+                Merchant
+            </h2>
+        </header>
+        <div id="body">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                     Mobile Merchant App
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3"><img height="450px" src="@Url.Content("~/Images/wp1.png")" /></div>
+                        <div class="col-md-3"><img height="450px" src="@Url.Content("~/Images/wp2.png")" /></div>
+                        <div class="col-md-3"><img height="450px" src="@Url.Content("~/Images/wp3.png")" /></div>
+                        <div class="col-md-3"><img height="450px" src="@Url.Content("~/Images/wp4.png")" /></div>
+                    </div>
+                    </div>
+                    </div>
+
+                </div>
+                <footer>
+                    <div>
+                        <p class="text-left">&copy; SIX-Hackathon Team: NoCash</p>
+                    </div>
+                </footer>
+            </div>
+
+</body>
+</html>
+

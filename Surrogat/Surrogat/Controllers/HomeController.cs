@@ -33,10 +33,8 @@ namespace Surrogat.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Merchant()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
