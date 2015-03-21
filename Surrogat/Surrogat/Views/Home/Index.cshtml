@@ -6,15 +6,11 @@
     </h2>
 </div>
 <div class="jumbotron">
-<<<<<<< HEAD
     <h2>
-        <a href="@Url.Action("index", "Overview", new { Area = "Issuer" }, null)">
+        <a href="@Url.Action("index", "Overview", new { IssuerId=1, Area = "Issuer" }, null)">
             <img src="@Url.Content("~/Images/issuer.png")" /> Issuer
         </a>
     </h2>
-=======
-    <h2><img src="@Url.Content("~/Images/issuer.png")" />@Html.ActionLink("Issuer", "index", "Issuer", new {IssuerId=1, Area = "Issuer" }, null)</h2>
->>>>>>> add issuerId on issuer controller
 </div>
 <div class="jumbotron">
     <h2>
