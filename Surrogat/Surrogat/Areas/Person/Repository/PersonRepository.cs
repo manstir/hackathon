@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using NHibernate.Criterion;
 using NHibernate.Linq;
 using Surrogat.Areas.Person.Models;
 using Surrogat.Models;
@@ -14,22 +17,40 @@ namespace Surrogat.Areas.Person.Repository
             {
                 var person = Session.Query<PersonBE>()
                     .SingleOrDefault(p => p.Id == personId);
-                    transaction.Commit();
-                    return person;
+                transaction.Commit();
+                return person;
             }
         }
 
-        public void AddTransaction(int personId, decimal amount)
+        public void AddEBill(int personId, decimal amount, Guid token)
         {
             using (var transaction = Session.BeginTransaction())
             {
-                Session.Save(new TransactionBE
+                Session.Save(new PersonEBillBE
                 {
                     PersonId = personId,
                     Amount = amount,
                     WithdrawDate = DateTime.Now,
-                    EBillToken = new Guid().ToString()
+                    Token = token
                 });
+                transaction.Commit();
+            }
+        }
+
+        public void CashInBills(IEnumerable<Guid> tokens)
+        {
+            using (var transaction = Session.BeginTransaction())
+            {
+                var uncashedEBills = Session.QueryOver<PersonEBillBE>()
+                     .Where(b => b.Token.IsIn((ICollection)tokens))
+                     .List<PersonEBillBE>();
+
+                foreach (var eBill in uncashedEBills)
+                {
+                    eBill.Cashed = true;
+                    eBill.CashedDate = DateTime.Now;
+                }
+
                 transaction.Commit();
             }
         }

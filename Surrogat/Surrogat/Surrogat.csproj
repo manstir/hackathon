@@ -216,7 +216,7 @@
     <Compile Include="Areas\Issuer\Services\VirtualAtmService.cs" />
     <Compile Include="Areas\Issuer\ViewModels\OverviewViewModel.cs" />
     <Compile Include="Areas\Person\Controllers\PersonController.cs" />
-    <Compile Include="Areas\Person\Models\TransactionBE.cs" />
+    <Compile Include="Areas\Person\Models\PersonEBillBE.cs" />
     <Compile Include="Areas\Person\Models\PersonBE.cs" />
     <Compile Include="Areas\CentralBank\Services\ExchangeEBillService.cs" />
     <Compile Include="Areas\CentralBank\Services\IExchangeEBillService.cs" />
@@ -308,11 +308,23 @@
     <Content Include="Images\acquirer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\barcode.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\bluetooth.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\centralBank.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\courthouse.png" />
+    <Content Include="Images\eBill.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\issuer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\nfc.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\person.png">

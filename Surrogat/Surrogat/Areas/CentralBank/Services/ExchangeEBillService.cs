@@ -1,25 +1,21 @@
-﻿namespace Surrogat.Areas.CentralBank.Services
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Surrogat.Areas.CentralBank.Repository;
+using Surrogat.Shared;
+
+namespace Surrogat.Areas.CentralBank.Services
 {
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using FluentNHibernate.Utils;
-
-    using Surrogat.Areas.CentralBank.Repository;
-    using Surrogat.Shared;
-
-    using WebGrease.Css.Extensions;
-
     public class ExchangeEBillService : IExchangeEBillService
     {
-        public IEnumerable<BillDto> Exchange(IEnumerable<BillDto> bills, decimal targetAmount)
+        public IEnumerable<BillDto> Exchange(IEnumerable<Guid> bills, decimal targetAmount)
         {
             var billRepo = new BillRepository();
             decimal balance = 0;
             bills.ToList().ForEach(
                 b =>
                 {
-                    balance += billRepo.CashBill(b.Token);
+                    balance += billRepo.CashBill(b);
                 });
 
             var targetBill = billRepo.CreateBill(targetAmount);

@@ -1,11 +1,12 @@
-﻿namespace Surrogat.Areas.CentralBank.Services
+﻿using System;
+
+namespace Surrogat.Areas.CentralBank.Services
 {
     using System.Collections.Generic;
-
-    using Surrogat.Shared;
+    using Shared;
 
     public interface IExchangeEBillService
     {
-        IEnumerable<BillDto> Exchange(IEnumerable<BillDto> bills, decimal targetAmount);
+        IEnumerable<BillDto> Exchange(IEnumerable<Guid> bills, decimal targetAmount);
     }
 }   

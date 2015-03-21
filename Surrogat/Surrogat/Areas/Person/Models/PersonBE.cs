@@ -12,7 +12,7 @@ namespace Surrogat.Areas.Person.Models
             Map(x => x.Firstname).Column("Firstname");
             Map(x => x.Lastname).Column("Lastname");
             Map(x => x.Email).Column("Email");
-            HasMany(x => x.Transactions).KeyColumn("Person_FK");
+            HasMany(x => x.EBills).KeyColumn("Person_FK");
         }
     }
 
@@ -20,13 +20,13 @@ namespace Surrogat.Areas.Person.Models
     {
         public PersonBE()
         {
-            Transactions = new List<TransactionBE>();
+            EBills = new List<PersonEBillBE>();
         }  
 
         public virtual int Id { get; set; }
         public virtual string Firstname { get; set; }
         public virtual string Lastname { get; set; }
         public virtual string Email { get; set; }
-        public virtual IList<TransactionBE> Transactions { get; set; }
+        public virtual IList<PersonEBillBE> EBills { get; set; }
     }
 }

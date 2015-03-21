@@ -3,14 +3,14 @@ using FluentNHibernate.Mapping;
 
 namespace Surrogat.Areas.Person.Models
 {
-    public class TransactionMap : ClassMap<TransactionBE>
+    public class PersonEBillMap : ClassMap<PersonEBillBE>
     {
-        public TransactionMap()
+        public PersonEBillMap()
         {
-            this.Table("SG_P_Transaction");
+            this.Table("SG_P_EBill");
             this.Id(x => x.Id).Column("Id").GeneratedBy.Identity();
             Map(x => x.PersonId).Column("Person_FK");
-            Map(x => x.EBillToken).Column("EBillToken");
+            Map(x => x.Token).Column("Token");
             Map(x => x.Amount).Column("Amount");
             Map(x => x.WithdrawDate).Column("WithdrawDate");
             Map(x => x.Cashed).Column("Cashed");
@@ -18,11 +18,11 @@ namespace Surrogat.Areas.Person.Models
         }
     }
 
-    public class TransactionBE
+    public class PersonEBillBE
     {
         public virtual int Id { get; set; }
         public virtual int PersonId { get; set; }
-        public virtual string EBillToken { get; set; }
+        public virtual Guid Token { get; set; }
         public virtual decimal Amount { get; set; }
         public virtual DateTime WithdrawDate { get; set; }
         public virtual bool Cashed { get; set; }
