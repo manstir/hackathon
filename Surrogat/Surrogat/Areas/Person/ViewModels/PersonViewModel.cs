@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Surrogat.Areas.Person.Models;
 
 namespace Surrogat.Areas.Person.ViewModels
@@ -22,6 +23,17 @@ namespace Surrogat.Areas.Person.ViewModels
         public string GetQRCode()
         {
             return string.Concat(CashedEBill.Amount, "_", CashedEBill.Token);
+        }
+
+        public string GetPartnerAmount()
+        {
+            var amount = CashedEBill.Amount;
+            return Math.Round(amount * (decimal)1.1, 2).ToString();
+        }
+
+        public string GetPartnerQRCode()
+        {
+            return string.Concat(GetPartnerAmount(), "_", CashedEBill.Token);
         }
     }
 }
