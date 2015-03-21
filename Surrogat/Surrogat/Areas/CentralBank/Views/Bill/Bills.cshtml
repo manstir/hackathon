@@ -5,7 +5,7 @@
         <tr>
             <th>Serial</th>
             <th>Issued</th>
-            <th>Amount</th>
+            <th>Amount (CHF)</th>
             <th>Cashed</th>
             <th>Token</th>
         </tr>
@@ -16,7 +16,7 @@
             <tr @(bill.CashedDate != null ? "class=success" : string.Empty)>
                 <td>@bill.Serial</td>
                 <td>@bill.IssuedDate</td>
-                <td>@bill.Amount</td>
+                <td class="text-right">@bill.Amount</td>
                 <td>@bill.CashedDate</td>
                 <td>@bill.Token</td>
             </tr>

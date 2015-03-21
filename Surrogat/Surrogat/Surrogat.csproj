@@ -203,6 +203,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Acquirer\AcquirerAreaRegistration.cs" />
     <Compile Include="Areas\CentralBank\Controllers\BankController.cs" />
     <Compile Include="Areas\CentralBank\Models\EBillBE.cs" />
     <Compile Include="Areas\CentralBank\CentralBankAreaRegistration.cs" />
@@ -305,6 +306,7 @@
     <Content Include="Areas\Issuer\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Person\Views\Shared\_PersonLayout.cshtml" />
     <Content Include="Areas\Issuer\Views\Issuer\account.cshtml" />
+    <Content Include="Areas\Acquirer\Views\web.config" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Images\acquirer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -394,6 +396,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Acquirer\Controllers\" />
+    <Folder Include="Areas\Acquirer\Models\" />
+    <Folder Include="Areas\Acquirer\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

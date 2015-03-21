@@ -11,11 +11,11 @@
             <div class="panel-body">
                 @{
                     <div class="Toolbar">
-                        <a href="@Url.Action("buy", "Issuer",new{IssuerId = @Model.IssuerId, amount = 10})" class="btn btn-primary">+ 10</a>
-                        <a href="@Url.Action("buy", "Issuer", new { IssuerId = @Model.IssuerId, amount = 50 })" class="btn btn-primary">+ 50</a>
-                        <a href="@Url.Action("buy", "Issuer", new { IssuerId = @Model.IssuerId, amount = 100 })" class="btn btn-primary">+ 100</a>
+                        <a href="@Url.Action("buy", "Issuer",new{IssuerId = @Model.IssuerId, amount = 10})" class="btn btn-primary">+ CHF 10</a>
+                        <a href="@Url.Action("buy", "Issuer", new { IssuerId = @Model.IssuerId, amount = 50 })" class="btn btn-primary">+ CHF 50</a>
+                        <a href="@Url.Action("buy", "Issuer", new { IssuerId = @Model.IssuerId, amount = 100 })" class="btn btn-primary">+ CHF 100</a>
                     </div>
-                    <table class="table table-hover table-condensed">
+                    <table class="table table-hover table-striped table-condensed">
                         <thead>
                             <tr>
                                 <th>Value</th>
