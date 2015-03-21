@@ -1,16 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Surrogat.Areas.Acquirer.Repository;
+using Surrogat.Areas.Acquirer.Services;
+using Surrogat.Areas.Acquirer.ViewModel;
 
 namespace Surrogat.Areas.Acquirer.Controllers
 {
     public class AcquirerController : Controller
     {
-        public ActionResult Index()
+        private VirtualMultimatService _virtualMultimatService;
+
+        public AcquirerController()
         {
-            return View("index");
+            _virtualMultimatService = new VirtualMultimatService();
+        }
+
+        public ActionResult Index(int acquirerId)
+        {
+            return View("index", new AcquirerViewModel
+            {
+                Merchants = new MerchantRepository().GetMerchants(acquirerId)
+            });
+        }
+
+        [HttpGet]
+        public void Deposit(int merchantId, string token)
+        {
+            _virtualMultimatService.Deposit(merchantId, token);
         }
     }
 }

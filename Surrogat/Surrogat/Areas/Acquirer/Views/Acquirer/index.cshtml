@@ -1,4 +1,22 @@
-﻿@{
+﻿@model Surrogat.Areas.Acquirer.ViewModel.AcquirerViewModel
+
+@{
     Layout = "~/Areas/Acquirer/Views/Shared/_AcquirerLayout.cshtml";
 }
 
+<div class="row">
+    @foreach (var merchant in Model.Merchants)
+    {
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                        <img width="24" src="@Url.Content("~/Images/merchant.jpg")" />
+                    @merchant.Name (@merchant.Id)
+                </div>
+                <div class="panel-body">
+                    <p>Saldo: <strong class="text-success">CHF @merchant.Saldo</strong></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -205,6 +205,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Acquirer\AcquirerAreaRegistration.cs" />
     <Compile Include="Areas\Acquirer\Controllers\AcquirerController.cs" />
+    <Compile Include="Areas\Acquirer\Models\MerchantBE.cs" />
+    <Compile Include="Areas\Acquirer\Repository\MerchantRepository.cs" />
+    <Compile Include="Areas\Acquirer\Services\VirtualMultimatService.cs" />
+    <Compile Include="Areas\Acquirer\ViewModel\AcquirerViewModel.cs" />
     <Compile Include="Areas\CentralBank\Controllers\BankController.cs" />
     <Compile Include="Areas\CentralBank\Models\EBillBE.cs" />
     <Compile Include="Areas\CentralBank\CentralBankAreaRegistration.cs" />
@@ -399,7 +403,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Acquirer\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
