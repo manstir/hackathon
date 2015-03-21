@@ -1,28 +1,50 @@
-﻿<div class="jumbotron">
+﻿<div class="jumbotron" style="padding: 10px; height: 100px">
+    <h2>
+        Welcome To NoCash! <a href="http://prezi.com/be6h171ldvks/?utm_campaign=share&utm_medium=copy">Presentation</a>
+    </h2>
+</div>
+<div class="jumbotron" style="padding: 20px; height: 180px">
     <h2>
         <a href="@Url.Action("index", "Bank", new { Area = "CentralBank" }, null)">
-            <img src="@Url.Content("~/Images/centralBank.png")" /> CentralBank
+            <img style="height: 100px" src="@Url.Content("~/Images/centralBank.png")" /> CentralBank
         </a>
     </h2>
 </div>
-<div class="jumbotron">
-    <h2>
-        <a href="@Url.Action("index", "Issuer", new {IssuerId = 1, Area = "Issuer"}, null)">
-            <img src="@Url.Content("~/Images/issuer.png")"/> Issuer
-        </a>
-    </h2>
-</div>
-<div class="jumbotron">
+<div class="row" >
+    <div class="col-md-6">
+        <div class="jumbotron" style="padding: 20px; height: 180px">
+            <h2>
+                <a href="@Url.Action("index", "Issuer", new {IssuerId = 1, Area = "Issuer"}, null)">
+                    <img src="@Url.Content("~/Images/issuer.png")" /> Issuer
+                </a>
+            </h2>
+        </div>
+    </div>
+    <div class="col-md-6"><div class="jumbotron" style="padding: 20px; height: 180px">
     <h2>
         <a href="@Url.Action("index", "Acquirer", new { AcquirerId=1, Area = "Acquirer" }, null)">
             <img src="@Url.Content("~/Images/acquirer.png")" /> Acquirer
         </a>
     </h2>
+</div></div>
 </div>
-<div class="jumbotron">
+
+<div class="row">
+    <div class="col-md-6"><div class="jumbotron" style="padding: 20px; height: 180px">
     <h2>
         <a href="@Url.Action("index", "Person", new { Area = "Person", PersonId = 1 }, null)">
-            <img src="@Url.Content("~/Images/person.png")"/> Person
+            <img src="@Url.Content("~/Images/person.png")" /> Person
         </a>
     </h2>
+</div></div>
+    <div class="col-md-6">
+        <div class="jumbotron" style="padding: 20px; height: 180px">
+            <h2>
+                <a href="@Url.Action("index", "Merchant", null)">
+                    <img style="height: 142px" src="@Url.Content("~/Images/merchant.png")" /> Merchant
+                </a>
+            </h2>
+        </div>
+    </div>
 </div>
+
