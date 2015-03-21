@@ -1,8 +1,9 @@
 ﻿@model Surrogat.Areas.CentralBank.ViewModels.IssuerViewModel
 
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <img width="24" src="@Url.Content("~/Images/issuer.png")" />
+    <div class="panel-heading"><a href="@Url.Action("index","Issuer",new{Area="Issuer", IssuerId=@Model.IssuerId})">
+    <img width="24" src="@Url.Content("~/Images/issuer.png")" />
+</a>
         Issuer: @Model.IssuerId 
     </div>
     <div class="panel-body">

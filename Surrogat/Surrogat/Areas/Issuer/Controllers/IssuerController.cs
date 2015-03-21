@@ -8,10 +8,8 @@ namespace Surrogat.Areas.Issuer.Controllers
 {
     public class IssuerController : Controller
     {
-        public const int IssuerId = 1;
-
         // GET: Issuer/AccountsManagement
-        public ActionResult Index()
+        public ActionResult Index(int issuerId)
         {
             var accountsRepository = new AccountsRepository();
             var accounts = accountsRepository.GetAccounts();
@@ -21,16 +19,17 @@ namespace Surrogat.Areas.Issuer.Controllers
 
             var model = new IssuerViewModel()
             {
+                IssuerId = issuerId,
                 Accounts = accounts,
                 Bills = bills
             };
             return View(model);
         }
 
-        public ActionResult Buy(decimal amount)
+        public ActionResult Buy(int issuerId, decimal amount)
         {
             var orderEBillService = new OrderEBillService();
-            var orderedBill = orderEBillService.OrderBill(IssuerId, amount);
+            var orderedBill = orderEBillService.OrderBill(issuerId, amount);
 
             var bill = new BillBE
             {
@@ -42,7 +41,7 @@ namespace Surrogat.Areas.Issuer.Controllers
             var billsRepository = new BillsRepository();
             billsRepository.AddBill(bill);
 
-            return RedirectToAction("index");
+            return RedirectToAction("index",new{IssuerId = issuerId});
         }
     }
 }
