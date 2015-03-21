@@ -1,11 +1,21 @@
 ﻿<div class="jumbotron">
-    <h2><img src="@Url.Content("~/Images/centralBank.png")" />@Html.ActionLink("CentralBank", "index", "Bank", new { Area = "CentralBank" }, null)</h2>
+    <h2>
+        <a href="@Url.Action("index", "Bank", new { Area = "CentralBank" }, null)">
+            <img src="@Url.Content("~/Images/centralBank.png")" /> CentralBank
+        </a>
+    </h2>
 </div>
-
 <div class="jumbotron">
-    <h2><img src="@Url.Content("~/Images/issuer.png")" />@Html.ActionLink("Issuer", "index", "Issuer", new { Area = "Issuer" }, null)</h2>
+    <h2>
+        <a href="@Url.Action("index", "Overview", new { Area = "Issuer" }, null)">
+            <img src="@Url.Content("~/Images/issuer.png")" /> Issuer
+        </a>
+    </h2>
 </div>
-
 <div class="jumbotron">
-    <h2><img src="@Url.Content("~/Images/person.png")" />@Html.ActionLink("Person", "index", "Person", new { Area = "Person", PersonId = 1 }, null)</h2>
+    <h2>
+        <a href="@Url.Action("index", "Person", new { Area = "Person", PersonId = 1 }, null)">
+            <img src="@Url.Content("~/Images/person.png")"/> Person
+        </a>
+    </h2>
 </div>

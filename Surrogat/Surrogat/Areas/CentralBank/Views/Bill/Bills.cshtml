@@ -1,21 +1,25 @@
 ﻿@model Surrogat.Areas.CentralBank.ViewModels.BillListViewModel
 
-<table class="table table-hover table-condensed">
-    <tr>
-        <th>Serial</th>
-        <th>Issued</th>
-        <th>Amount</th>
-        <th>Cashed</th>
-        <th>Token</th>
-    </tr>
-    @foreach (var bill in @Model.Bills.OrderByDescending(b => b.Serial))
-    {
-        <tr class="@(bill.CashedDate == null ? "active" : "success")">
-            <td>@bill.Serial</td>
-            <td>@bill.IssuedDate</td>
-            <td>@bill.Amount</td>
-            <td>@bill.CashedDate</td>
-            <td>@bill.Token</td>
+<table class="table table-hover table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>Serial</th>
+            <th>Issued</th>
+            <th>Amount</th>
+            <th>Cashed</th>
+            <th>Token</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var bill in @Model.Bills.OrderByDescending(b => b.Serial))
+        {
+            <tr @(bill.CashedDate != null ? "class=success" : string.Empty)>
+                <td>@bill.Serial</td>
+                <td>@bill.IssuedDate</td>
+                <td>@bill.Amount</td>
+                <td>@bill.CashedDate</td>
+                <td>@bill.Token</td>
+            </tr>
+        }
+    </tbody>
 </table>
