@@ -34,7 +34,7 @@ namespace Surrogat.Areas.Issuer.Controllers
             var bill = new BillBE
             {
                 Amount = orderedBill.Amout,
-                BoughtOn = DateTime.Now,
+                BoughtOn = DateTime.UtcNow.AddHours(1),
                 Token = orderedBill.Token,
             };
 

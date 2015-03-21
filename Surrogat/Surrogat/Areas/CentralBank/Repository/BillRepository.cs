@@ -15,7 +15,12 @@
         {
             using (var transaction = Session.BeginTransaction())
             {
-                var serial = (int)Session.Save(new EBillBE { Amount = amount, IssuedDate = DateTime.Now, Token = Guid.NewGuid(), });
+                var serial = (int)Session.Save(new EBillBE
+                {
+                    Amount = amount,
+                    IssuedDate = DateTime.UtcNow.AddHours(1), 
+                    Token = Guid.NewGuid(),
+                });
                 var bill = this.LoadBillInternal(serial);
                 transaction.Commit();
                 return bill;
@@ -37,7 +42,7 @@
             using (var transaction = Session.BeginTransaction())
             {
                 var bill = this.LoadBillByTokenInternal(token);
-                bill.CashedDate = DateTime.Now;
+                bill.CashedDate = DateTime.UtcNow.AddHours(1);
                 var value = bill.Amount;
                 transaction.Commit();
                 return value;

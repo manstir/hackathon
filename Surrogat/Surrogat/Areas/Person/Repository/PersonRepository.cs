@@ -30,7 +30,7 @@ namespace Surrogat.Areas.Person.Repository
                 {
                     PersonId = personId,
                     Amount = amount,
-                    WithdrawDate = DateTime.Now,
+                    WithdrawDate = DateTime.UtcNow.AddHours(1),
                     Token = token
                 });
                 transaction.Commit();
@@ -63,7 +63,7 @@ namespace Surrogat.Areas.Person.Repository
 
                 foreach (var eBill in uncashedEBills)
                 {
-                    eBill.CashedDate = DateTime.Now;
+                    eBill.CashedDate = DateTime.UtcNow.AddHours(1);
                 }
 
                 transaction.Commit();
