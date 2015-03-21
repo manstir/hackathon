@@ -344,6 +344,9 @@
     <Content Include="Images\merchant.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\merchant.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\nfc.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
