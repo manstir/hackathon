@@ -8,7 +8,7 @@
         <th>Cashed</th>
         <th>Token</th>
     </tr>
-    @foreach (var bill in @Model.Bills)
+    @foreach (var bill in @Model.Bills.OrderByDescending(b => b.Serial))
     {
         <tr class="@(bill.CashedDate == null ? "active" : "success")">
             <td>@bill.Serial</td>

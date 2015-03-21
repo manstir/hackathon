@@ -1,0 +1,11 @@
+﻿@model Surrogat.Areas.Issuer.Models.AccountBE
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <img width="24" src="@Url.Content("~/Images/person.png")" />
+        Name: @Model.Name / @Model.Alias (@Model.Id)
+    </div>
+    <div class="panel-body">
+        <p>Saldo: <strong>CHF @Model.Debt.ToString("F")</strong></p>
+    </div>
+</div>

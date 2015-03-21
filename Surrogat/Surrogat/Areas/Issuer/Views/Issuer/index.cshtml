@@ -1,0 +1,68 @@
+﻿@model Surrogat.Areas.Issuer.ViewModels.IssuerViewModel
+
+@{
+    ViewBag.Title = "Issuer";
+    Layout = "~/Areas/Issuer/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading"><img width="48" src="@Url.Content("~/Images/ebill.png")" />Stored Values</div>
+            <div class="panel-body">
+                @{
+                    <div class="Toolbar">
+                        <a href="@Url.Action("buy", "Issuer",new{amount = 10})" class="btn btn-primary">+ 10</a>
+                        <a href="@Url.Action("buy", "Issuer",new{amount = 50})" class="btn btn-primary">+ 50</a>
+                        <a href="@Url.Action("buy", "Issuer",new{amount = 100})" class="btn btn-primary">+ 100</a>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Value</th>
+                                <th>Count</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Bills.Any())
+                            {
+                                foreach (var amountGroup in Model.Bills.GroupBy(be => be.Amount))
+                                {
+                                    <tr>
+                                        <th>@amountGroup.Key</th>
+                                        <td>@amountGroup.Count()</td>
+                                        <td>@amountGroup.Sum(be => be.Amount)</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="3">
+                                        <i>no money, no problems...</i>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>-</td>
+                                <td>@Model.Bills.Count()</td>
+                                <td>@Model.Bills.Sum(be => be.Amount)</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        @foreach (var account in Model.Accounts)
+        {
+            Html.RenderPartial("account", @account);
+        }
+    </div>
+    </div>
+
+

@@ -6,17 +6,12 @@ using Surrogat.Areas.Issuer.ViewModels;
 
 namespace Surrogat.Areas.Issuer.Controllers
 {
-    public class OverviewController : Controller
+    public class IssuerController : Controller
     {
         public const int IssuerId = 1;
 
         // GET: Issuer/AccountsManagement
         public ActionResult Index()
-        {
-            return RedirectToAction("Overview");
-        }
-
-        public ActionResult Overview()
         {
             var accountsRepository = new AccountsRepository();
             var accounts = accountsRepository.GetAccounts();
@@ -24,7 +19,7 @@ namespace Surrogat.Areas.Issuer.Controllers
             var billsRepository = new BillsRepository();
             var bills = billsRepository.GetBills();
 
-            var model = new OverviewViewModel()
+            var model = new IssuerViewModel()
             {
                 Accounts = accounts,
                 Bills = bills
@@ -47,7 +42,7 @@ namespace Surrogat.Areas.Issuer.Controllers
             var billsRepository = new BillsRepository();
             billsRepository.AddBill(bill);
 
-            return RedirectToAction("Overview");
+            return RedirectToAction("index");
         }
     }
 }
