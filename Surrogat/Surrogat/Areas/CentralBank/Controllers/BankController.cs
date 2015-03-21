@@ -30,5 +30,14 @@
 
             return this.View("Issuer", viewModel);
         }
+
+        public ActionResult AcquirerAccount(int acquirerId)
+        {
+            var acquirerRepo = new AcquirerRepository();
+            var acquirer = acquirerRepo.GetAcquirerById(acquirerId);
+            var viewModel = new AcquirerViewModel { AcquirerId = acquirer.AcquirerId, Saldo = acquirer.Saldo };
+
+            return this.View("Acquirer", viewModel);
+        }
     }
 }

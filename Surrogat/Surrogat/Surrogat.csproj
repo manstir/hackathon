@@ -213,8 +213,11 @@
     <Compile Include="Areas\CentralBank\Models\EBillBE.cs" />
     <Compile Include="Areas\CentralBank\CentralBankAreaRegistration.cs" />
     <Compile Include="Areas\CentralBank\Controllers\BillController.cs" />
+    <Compile Include="Areas\CentralBank\Models\AcquirerBalanceBE.cs" />
     <Compile Include="Areas\CentralBank\Models\IssuerBalanceBE.cs" />
     <Compile Include="Areas\CentralBank\Repository\BillRepository.cs" />
+    <Compile Include="Areas\CentralBank\Repository\AcquirerRepository.cs" />
+    <Compile Include="Areas\CentralBank\ViewModels\AcquirerViewModel.cs" />
     <Compile Include="Areas\Issuer\Models\BillBE.cs" />
     <Compile Include="Areas\Issuer\Repository\AccountsRepository.cs" />
     <Compile Include="Areas\Issuer\Models\AccountBE.cs" />
@@ -314,6 +317,7 @@
     <Content Include="Areas\Acquirer\Views\web.config" />
     <Content Include="Areas\Acquirer\Views\Acquirer\index.cshtml" />
     <Content Include="Areas\Acquirer\Views\Shared\_AcquirerLayout.cshtml" />
+    <Content Include="Areas\CentralBank\Views\Bank\Acquirer.cshtml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Images\acquirer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -335,6 +339,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\issuer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\merchant.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\nfc.png">

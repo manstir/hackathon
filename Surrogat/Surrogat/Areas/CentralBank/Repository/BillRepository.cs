@@ -44,6 +44,16 @@
             }
         }
 
+        public EBillBE GetBillByToken(Guid token)
+        {
+            using (var transaction = Session.BeginTransaction())
+            {
+                var bill = this.LoadBillByTokenInternal(token);
+                transaction.Commit();
+                return bill;
+            }
+        }
+
         private EBillBE LoadBillInternal(int serial)
         {
             return Session.Query<EBillBE>().FirstOrDefault(b => b.Serial == serial);

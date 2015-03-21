@@ -1,0 +1,12 @@
+﻿@model Surrogat.Areas.CentralBank.ViewModels.AcquirerViewModel
+
+<div class="panel panel-default">
+    <div class="panel-heading"><a href="@Url.Action("index", "Acquirer", new {Area = "Acquirer", IssuerId = @Model.AcquirerId})">
+            <img width="24" src="@Url.Content("~/Images/acquirer.png")"/>
+        </a>
+        Acquirer: @Model.AcquirerId
+    </div>
+    <div class="panel-body">
+        Saldo: <strong>CHF @Model.Saldo</strong>
+    </div>
+</div>
