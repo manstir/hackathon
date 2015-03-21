@@ -7,8 +7,15 @@
 </div>
 <div class="jumbotron">
     <h2>
-        <a href="@Url.Action("index", "Issuer", new { IssuerId=1, Area = "Issuer" }, null)">
-            <img src="@Url.Content("~/Images/issuer.png")" /> Issuer
+        <a href="@Url.Action("index", "Issuer", new {IssuerId = 1, Area = "Issuer"}, null)">
+            <img src="@Url.Content("~/Images/issuer.png")"/> Issuer
+        </a>
+    </h2>
+</div>
+<div class="jumbotron">
+    <h2>
+        <a href="@Url.Action("index", "Acquirer", new { AcquirerId=1, Area = "Acquirer" }, null)">
+            <img src="@Url.Content("~/Images/acquirer.png")" /> Acquirer
         </a>
     </h2>
 </div>
