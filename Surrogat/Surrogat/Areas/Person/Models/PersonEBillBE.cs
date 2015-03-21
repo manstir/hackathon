@@ -13,7 +13,6 @@ namespace Surrogat.Areas.Person.Models
             Map(x => x.Token).Column("Token");
             Map(x => x.Amount).Column("Amount");
             Map(x => x.WithdrawDate).Column("WithdrawDate");
-            Map(x => x.Cashed).Column("Cashed");
             Map(x => x.CashedDate).Column("CashedDate");
         }
     }
@@ -25,7 +24,6 @@ namespace Surrogat.Areas.Person.Models
         public virtual Guid Token { get; set; }
         public virtual decimal Amount { get; set; }
         public virtual DateTime WithdrawDate { get; set; }
-        public virtual bool Cashed { get; set; }
         public virtual DateTime? CashedDate { get; set; }
     }
 }

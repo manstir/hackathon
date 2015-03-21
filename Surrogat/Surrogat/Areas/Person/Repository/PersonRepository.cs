@@ -37,6 +37,22 @@ namespace Surrogat.Areas.Person.Repository
             }
         }
 
+        public PersonEBillBE GetEBillByToken(string token)
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                return null;
+            }
+
+            using (var transaction = Session.BeginTransaction())
+            {
+                var eBill = Session.Query<PersonEBillBE>()
+                    .SingleOrDefault(b => b.Token == new Guid(token));
+                transaction.Commit();
+                return eBill;
+            }
+        }
+
         public void CashInBills(IEnumerable<Guid> tokens)
         {
             using (var transaction = Session.BeginTransaction())
@@ -47,7 +63,6 @@ namespace Surrogat.Areas.Person.Repository
 
                 foreach (var eBill in uncashedEBills)
                 {
-                    eBill.Cashed = true;
                     eBill.CashedDate = DateTime.Now;
                 }
 

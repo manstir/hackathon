@@ -27,12 +27,14 @@ namespace Surrogat.Areas.Person.Controllers
 
         public ActionResult Index(int personId)
         {
+            var personRepository = new PersonRepository();
+
             var model = new PersonViewModel
             {
-                Person = new PersonRepository().GetPersonById(personId),
-                CashedInToken = (string)TempData["CashedInToken"]
+                Person = personRepository.GetPersonById(personId),
+                CashedEBill = personRepository.GetEBillByToken((string)TempData["CashedInToken"])
             };
-
+            
             return this.View("index", model);
         }
 
@@ -50,7 +52,7 @@ namespace Surrogat.Areas.Person.Controllers
         {
             var personRepository = new PersonRepository();
             var person = personRepository.GetPersonById(vm.Person.Id);
-            var uncashedTokens = person.EBills.Where(t => !t.Cashed).Select(t => t.Token).ToList();
+            var uncashedTokens = person.EBills.Where(t => t.CashedDate == null).Select(t => t.Token).ToList();
             var eBills = _exchangeEBillService.Exchange(uncashedTokens, vm.Amount).ToList();
             personRepository.CashInBills(uncashedTokens);
             foreach (var bill in eBills)

@@ -319,6 +319,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\courthouse.png" />
+    <Content Include="Images\digitec_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\eBill.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -39,7 +39,7 @@ namespace Surrogat.Extensions
             tag.Attributes.Add("src", url);
             tag.Attributes.Add("width", size.ToString());
             tag.Attributes.Add("height", size.ToString());
-            tag.Attributes.Add("class", "center-block qr-code");
+            tag.Attributes.Add("class", "center-block");
 
             return new MvcHtmlString(tag.ToString(TagRenderMode.SelfClosing));
         }

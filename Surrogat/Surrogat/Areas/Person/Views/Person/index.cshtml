@@ -4,11 +4,6 @@
     Layout = "~/Areas/Person/Views/Shared/_PersonLayout.cshtml";
 }
 
-<style>
-    .qr-code {
-        border: 1px solid #000000;
-    }
-</style>
 <div class="row">
     <div class="col-md-4 text-right text-muted" style="margin-top: -25px;"><h5>@Model.GetFullname()</h5></div>
 </div>
@@ -77,13 +72,21 @@
                     <button class="btn btn-default" style="padding: 4px 12px;"><img width="24" src="@Url.Content("~/Images/nfc.png")" /></button>
                     <button class="btn btn-default" style="padding: 4px 12px;"><img width="24" src="@Url.Content("~/Images/bluetooth.png")" /></button>
                 }
-                @if (!string.IsNullOrEmpty(Model.CashedInToken))
+                @if (Model.CashedEBill != null)
                 {
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p style="margin-top: 15px;">
-                                @Html.QRCode(Model.CashedInToken, 150)
+                    <div class="row" style="margin-top: 15px;">
+                        <div class=" col-xs-6 col-xs-offset-3" style="border: 1px solid #000000">
+                            <div class="text-right">
+                                <h3><strong>CHF @Model.CashedEBill.Amount</strong></h3>
+                            </div>
+                            <p>
+                                @Html.QRCode(Model.GetQRCode(), 150)
                             </p>
+                            <p class="text-muted">Partner</p>
+                            <img src="@Url.Content("~/images/digitec_logo.png")"/>
+                            <div class="text-right">
+                                <span class="text-muted">Created on: @Model.CashedEBill.WithdrawDate</span>
+                            </div>
                         </div>
                     </div>
                 }
@@ -106,7 +109,7 @@
                     <tbody>
                         @foreach (var eBill in Model.Person.EBills.OrderByDescending(t => t.WithdrawDate))
                         {
-                            <tr @(eBill.Cashed ? "class=success" : string.Empty)>
+                            <tr @(eBill.CashedDate != null ? "class=success" : string.Empty)>
                                 <td>@eBill.WithdrawDate</td>
                                 <td class="text-right">@eBill.Amount</td>
                                 <td>@(eBill.CashedDate.HasValue ? eBill.CashedDate.Value.ToString() : string.Empty)</td>

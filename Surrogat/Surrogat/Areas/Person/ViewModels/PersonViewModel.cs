@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Web.Mvc;
 using Surrogat.Areas.Person.Models;
 
 namespace Surrogat.Areas.Person.ViewModels
@@ -8,7 +7,7 @@ namespace Surrogat.Areas.Person.ViewModels
     {
         public PersonBE Person { get; set; }
         public decimal Amount { get; set; }
-        public string CashedInToken { get; set; }
+        public PersonEBillBE CashedEBill { get; set; }
 
         public string GetFullname()
         {
@@ -17,7 +16,12 @@ namespace Surrogat.Areas.Person.ViewModels
 
         public decimal GetBalance()
         {
-            return Person.EBills.Where(transaction => !transaction.Cashed).Sum(transaction => transaction.Amount);
+            return Person.EBills.Where(transaction => transaction.CashedDate == null).Sum(transaction => transaction.Amount);
+        }
+
+        public string GetQRCode()
+        {
+            return string.Concat(CashedEBill.Amount, "_", CashedEBill.Token);
         }
     }
 }
