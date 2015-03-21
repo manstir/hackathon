@@ -1,4 +1,5 @@
-﻿using FluentNHibernate.Mapping;
+﻿using System;
+using FluentNHibernate.Mapping;
 
 namespace Surrogat.Areas.Issuer.Models
 {
@@ -12,6 +13,7 @@ namespace Surrogat.Areas.Issuer.Models
             Map(x => x.Alias).Column("Alias");
             Map(x => x.PasswordHash).Column("PasswordHash");
             Map(x => x.Debt).Column("Debt");
+            Map(x => x.CreatedOn).Column("CreatedOn");
         }
     }
 
@@ -22,5 +24,6 @@ namespace Surrogat.Areas.Issuer.Models
         public virtual string Alias { get; set; }
         public virtual byte[] PasswordHash { get; set; }
         public virtual decimal Debt { get; set; }
+        public virtual DateTime CreatedOn { get; set; }
     }
 }

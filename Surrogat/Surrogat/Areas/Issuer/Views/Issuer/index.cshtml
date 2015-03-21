@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col-md-8">
 		<div class="panel panel-default">
-			<div class="panel-heading"><img width="48" src="@Url.Content("~/Images/ebill.png")" />Stored Values</div>
+			<div class="panel-heading"><img width="48" src="@Url.Content("~/Images/ebill.png")" />EBills Summary</div>
 			<div class="panel-body">
 				@{
 					<div class="Toolbar">
@@ -26,12 +26,14 @@
 						<tbody>
 							@if (Model.Bills.Any())
 							{
-								foreach (var amountGroup in Model.Bills.GroupBy(be => be.Amount))
+								foreach (var amountGroup in Model.Bills.GroupBy(be => be.Amount).OrderBy(bes => bes.Key))
 								{
-									<tr>
-										<th>@amountGroup.Key</th>
-										<td>@amountGroup.Count()</td>
-										<td>@amountGroup.Sum(be => be.Amount)</td>
+									var amountClass = amountGroup.Count() < 5 ? "danger" : amountGroup.Count() < 10 ? "warning" : "success";
+									
+									<tr class="@amountClass">
+										<th>CHF @amountGroup.Key.ToString("F")</th>
+										<td class="@amountClass">@amountGroup.Count()</td>
+										<td>CHF @amountGroup.Sum(be => be.Amount).ToString("F")</td>
 									</tr>
 								}
 							}
@@ -48,7 +50,7 @@
 							<tr class="active">
 								<th> </th>
 								<th>@Model.Bills.Count()</th>
-								<th>@Model.Bills.Sum(be => be.Amount)</th>
+								<th>CHF @Model.Bills.Sum(be => be.Amount).ToString("F")</th>
 							</tr>
 						</tfoot>
 					</table>

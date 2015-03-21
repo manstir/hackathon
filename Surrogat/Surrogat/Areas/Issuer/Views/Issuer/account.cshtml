@@ -1,13 +1,14 @@
 ﻿@model Surrogat.Areas.Issuer.Models.AccountBE
 
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <a href="@Url.Action("index", "person", new {Area = "Person", PersonId=@Model.Id})">
-            <img width="24" src="@Url.Content("~/Images/person.png")" />
-        </a>
-        Name: @Model.Name (@Model.Id)
-    </div>
-    <div class="panel-body">
-        <p>Saldo: <strong class="text-danger">CHF @Model.Debt.ToString("F")</strong></p>
-    </div>
+	<div class="panel-heading">
+		<a href="@Url.Action("index", "person", new {Area = "Person", PersonId=@Model.Id})">
+			<img width="24" src="@Url.Content("~/Images/person.png")" />
+		</a>
+		@Model.Name (#@Model.Id)
+	</div>
+	<div class="panel-body">
+		<p>Joined on: @Model.CreatedOn.ToString("d")</p>
+		<p>Balance: <strong class="text-danger">CHF @Model.Debt.ToString("F")</strong></p>
+	</div>
 </div>
