@@ -26,7 +26,7 @@
         {
             using (var transaction = Session.BeginTransaction())
             {
-                var bills = Session.Query<EBillBE>().Where(b => b.Serial < 100).ToList();
+                var bills = Session.Query<EBillBE>().ToList();
                 transaction.Commit();
                 return bills;
             }

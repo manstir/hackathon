@@ -1,0 +1,14 @@
+
+delete from sg_p_ebill
+
+delete from sg_cb_bill
+
+delete from sg_is_bill
+
+update sg_is_account set debt = 0.0
+
+update sg_ac_merchant set saldo = 0.0
+
+update SG_CB_Akonto_Acquirer set saldo = 0.0
+
+update SG_CB_AKONTO_ISSUER set saldi = 0.0
