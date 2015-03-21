@@ -353,6 +353,10 @@
     <Content Include="Images\person.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\wp1.png" />
+    <Content Include="Images\wp2.png" />
+    <Content Include="Images\wp3.png" />
+    <Content Include="Images\wp4.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
